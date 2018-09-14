@@ -36,7 +36,7 @@ workflows:
       - run atest running:
           requires:
             - run unit test
-      - run atest standard_libraries:
+      - run atest standard libraries:
           requires:
             - run unit test
 
@@ -192,7 +192,7 @@ jobs:
             python atest/run.py python --output NONE --report NONE --log NONE
             atest/robot/running
 
-  run atest standard_libraries:
+  run atest standard libraries:
     docker:
       - image: circleci/python:3.6
     working_directory: ~/repo
