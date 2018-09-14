@@ -18,9 +18,9 @@ workflows:
       - run atest core:
           requires:
             - run unit test
-      # - run atest external:
-      #     requires:
-      #       - run unit test
+      - run atest external:
+          requires:
+            - run unit test
       # - run atest keywords:
       #     requires:
       #       - run unit test
