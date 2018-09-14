@@ -85,11 +85,11 @@ jobs:
       # https://nose.readthedocs.io
       - run:
           name: run all unit tests
-          # command: |
-          #   cd utest
-          #   python run.py
           command: |
-            echo "FAKE PASS"
+            cd utest
+            python run.py
+          # command: echo "FAKE PASS"
+
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -104,10 +104,10 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
-          # command: >
-          #   python atest/run.py python --output NONE --report NONE --log NONE
-          #   atest/robot/cli
-          command: echo "FAKE PASS!"
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/cli
+          # command: echo "FAKE PASS!"
 
   run atest core:
     docker:
@@ -203,4 +203,4 @@ jobs:
       - run:
           command: >
             python atest/run.py python --output NONE --report NONE --log NONE
-            atest/robot/standard_libraries/buildin
+            atest/robot/standard_libraries/builtin
