@@ -26,7 +26,7 @@ workflows:
             - run unit test
       - run atest output:
           requires:
-            -run unit test
+            - run unit test
       # - run atest rebot:
       #     requires:
       #       - run unit test
