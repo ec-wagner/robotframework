@@ -30,9 +30,9 @@ workflows:
       - run atest rebot:
           requires:
             - run unit test
-      # - run atest rpa:
-      #     requires:
-      #       - run unit test
+      - run atest rpa:
+          requires:
+            - run unit test
       # - run atest running:
       #     requires:
       #       - run unit test
