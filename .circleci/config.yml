@@ -18,6 +18,28 @@ workflows:
       - run atest core:
           requires:
             - run unit test
+      - run atest external:
+          requires:
+            - run unit test
+      - run atest keywords:
+          requires:
+            - run unit test
+      - run atest output:
+          requires:
+            -run unit test
+      - run atest rebot:
+          requires:
+            - run unit test
+      - run atest rpa:
+          requires:
+            - run unit test
+      - run atest running:
+          requires:
+            - run unit test
+      - run atest standard_libraries:
+          requires:
+            - run unit test
+
 
 version: 2
 jobs:
@@ -78,7 +100,7 @@ jobs:
       - image: circleci/python:3.6
     working_directory: ~/repo
     steps:
-      # - checkout
+      # - checkout # don't need it cuz we reuse WS from previous job
       - attach_workspace:
           at: ~/repo
       - run:
@@ -87,14 +109,97 @@ jobs:
             atest/robot/cli
 
   run atest core:
-    docker:
+    docker:run atest output
       - image: circleci/python:3.6
     working_directory: ~/repo
     steps:
-      #- checkout
       - attach_workspace:
           at: ~/repo
       - run:
           command: >
             python atest/run.py python --output NONE --report NONE --log NONE
             atest/robot/core
+
+  run atest external:
+    docker:
+      - image: circleci/python:3.6
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/external
+
+  run atest keywords:
+    docker:
+      - image: circleci/python:3.6
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/keywords
+
+  run atest output:
+    docker:
+      - image: circleci/python:3.6
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/output
+
+  run atest rebot:
+    docker:
+      - image: circleci/python:3.6
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/rebot
+
+  run atest rpa:
+    docker:
+      - image: circleci/python:3.6
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/rpa
+
+  run atest running:
+    docker:
+      - image: circleci/python:3.6
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/running
+
+  run atest standard_libraries:
+    docker:
+      - image: circleci/python:3.6
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/standard_libraries/buildin
