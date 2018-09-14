@@ -76,8 +76,9 @@ jobs:
           at: ~/repo
       - run:
           name: run cli atest
-          command: |
-            python atest/run.py python atest/robot/cli
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/cli
 
   run atest core:
     docker:
@@ -89,5 +90,6 @@ jobs:
           at: ~/repo
       - run:
           name: run cli atest
-          command: |
-            python atest/run.py python atest/robot/core
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/core
