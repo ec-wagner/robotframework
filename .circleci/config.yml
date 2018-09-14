@@ -8,6 +8,9 @@ workflows:
       - run_atest_cli:
           requires:
             - run_unit_test
+      - run atest core:
+          requires:
+            - run_unit_test
 
 version: 2
 jobs:
@@ -66,4 +69,13 @@ jobs:
           name: run cli atest
           command: |
             python atest/run.py python atest/robot/cli
-      
+
+  run atest core:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - checkout
+      - run:
+          name: run cli atest
+          command: |
+            python atest/run.py python atest/robot/core
