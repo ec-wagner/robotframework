@@ -59,12 +59,18 @@ jobs:
           command: |
             cd utest
             python run.py
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - atest
 
   run atest cli:
     docker:
       - image: circleci/python:3.6
     steps:
-      - checkout
+      # - checkout
+      - attach_workspace:
+          at: ~/repo
       - run:
           name: run cli atest
           command: |
