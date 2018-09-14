@@ -1,3 +1,6 @@
+.. image:: https://circleci.com/gh/ec-wagner/robotframework/tree/master.svg?style=svg
+    :target: https://circleci.com/gh/ec-wagner/robotframework/tree/master
+
 Robot Framework
 ===============
 
