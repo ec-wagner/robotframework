@@ -86,7 +86,7 @@ jobs:
   run atest cli:
     docker:
       - image: circleci/python:3.6
-    parallelism: 4
+    # parallelism: 4
     working_directory: ~/repo
     steps:
       # - checkout # don't need it cuz we reuse WS from previous job
