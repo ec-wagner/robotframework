@@ -33,9 +33,9 @@ workflows:
       - run atest rpa:
           requires:
             - run unit test
-      # - run atest running:
-      #     requires:
-      #       - run unit test
+      - run atest running:
+          requires:
+            - run unit test
       # - run atest standard libraries:
       #     requires:
       #       - run unit test
