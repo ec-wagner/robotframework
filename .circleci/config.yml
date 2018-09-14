@@ -67,6 +67,7 @@ jobs:
   run atest cli:
     docker:
       - image: circleci/python:3.6
+    working_directory: ~/repo
     steps:
       # - checkout
       - attach_workspace:
@@ -80,7 +81,9 @@ jobs:
     docker:
       - image: circleci/python:3.6
     steps:
-      - checkout
+      #- checkout
+      - attach_workspace:
+          at: ~/repo
       - run:
           name: run cli atest
           command: |
