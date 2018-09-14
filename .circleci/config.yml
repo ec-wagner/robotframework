@@ -4,17 +4,17 @@ workflows:
 
   robotframework_atests:
     jobs:
-      - run_unit_test
-      - run_atest_cli:
+      - run unit test
+      - run atest cli:
           requires:
-            - run_unit_test
+            - run unit test
       - run atest core:
           requires:
-            - run_unit_test
+            - run unit test
 
 version: 2
 jobs:
-  run_unit_test:
+  run unit test:
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
@@ -60,7 +60,7 @@ jobs:
             cd utest
             python run.py
 
-  run_atest_cli:
+  run atest cli:
     docker:
       - image: circleci/python:3.6
     steps:
