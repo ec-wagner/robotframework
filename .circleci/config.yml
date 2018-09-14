@@ -86,7 +86,7 @@ jobs:
   run atest cli:
     docker:
       - image: circleci/python:3.6
-    # parallelism: 4
+    parallelism: 4
     working_directory: ~/repo
     steps:
       # - checkout # don't need it cuz we reuse WS from previous job
@@ -95,7 +95,23 @@ jobs:
       - run:
           command: >
             python atest/run.py python --output NONE --report NONE --log NONE
-            atest/robot/cli
+            atest/robot/cli/console
+      - run:
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/cli/dryrun
+      - run:
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/cli/model_modifiers
+      - run:
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/cli/rebot
+      - run:
+          command: >
+            python atest/run.py python --output NONE --report NONE --log NONE
+            atest/robot/cli/runner
           # command: echo "FAKE PASS!"
           # command: |
           #   circleci tests glob atest/robot/cli/**/*.robot | circleci tests split
