@@ -109,7 +109,7 @@ jobs:
             atest/robot/cli
 
   run atest core:
-    docker:run atest output
+    docker:
       - image: circleci/python:3.6
     working_directory: ~/repo
     steps:
