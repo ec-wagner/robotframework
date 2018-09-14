@@ -36,9 +36,9 @@ workflows:
       - run atest running:
           requires:
             - run unit test
-      # - run atest standard libraries:
-      #     requires:
-      #       - run unit test
+      - run atest standard libraries:
+          requires:
+            - run unit test
 
 
 version: 2
