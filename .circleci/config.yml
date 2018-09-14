@@ -62,7 +62,7 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - atest
+            - .
 
   run atest cli:
     docker:
